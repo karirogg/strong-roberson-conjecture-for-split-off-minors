@@ -1,0 +1,10 @@
+name = "strong-robertson-conjecture-for-split-off-minors"
+version = "0.1.0"
+defaultTargets = ["StrongRobertson"]
+
+[[require]]
+name = "mathlib"
+path = "mathlib"
+
+[[lean_lib]]
+name = "StrongRobertson"

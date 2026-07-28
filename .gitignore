@@ -1,0 +1,18 @@
+# Lake build output and local editor state
+/.lake/
+/.vscode/
+
+# Lean compiler artifacts (normally kept under .lake)
+*.olean
+*.ilean
+*.c
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+*.swp
+
+# Local logs
+*.log
