@@ -1,0 +1,45 @@
+
+\begin{tikzpicture}[
+    vertex/.style={circle, draw=black, thick, minimum size=14pt, inner sep=0pt, font=\small},
+    odd/.style={vertex, fill=blue!10},
+    even/.style={vertex, fill=white},
+    edge/.style={thick, black},
+    bag/.style={ellipse, draw=gray, dashed, inner sep=8pt}
+]
+
+    % --- Bag A (Top): 1 odd, 2 even ---
+    \node[odd]  (Ao)  at (0.6, 5.2)   {o};
+    \node[even] (Ae1) at (0, 4) {e};
+    \node[even] (Ae2) at (0.8, 4)  {e};
+    \node[bag, fit=(Ao) (Ae1) (Ae2)] (BagA) {};
+
+    % --- Bag B (Bottom Left): 1 odd, 3 even ---
+    \node[odd]  (Bo)  at (-3, 0.5)   {o};
+    \node[even] (Be1) at (-2.5, 2) {e};
+    \node[even] (Be2) at (-1.5, 1) {e};
+    \node[bag, fit=(Bo) (Be1) (Be2)] (BagB) {};
+
+    % --- Bag C (Bottom Right): 1 odd, 1 even ---
+    \node[odd]  (Co)  at (3, 0.5)   {o};
+    \node[even] (Ce1) at (2, 0) {e};
+    \node[bag, fit=(Co) (Ce1)] (BagC) {};
+
+    % --- Path AB (Length 5: A -> B -> A -> B -> A -> B) ---
+    % Path: Ao -- Be1 -- Ae1 -- Be2 -- Ae2 -- Bo
+    \draw[edge] (Ao)  -- (Be1);
+    \draw[edge] (Be1) -- (Ae1);
+    \draw[edge] (Ae1) -- (Be2);
+    \draw[edge] (Be2) -- (Ae2);
+    \draw[edge] (Ae2) -- (Bo);
+
+    % --- Path BC (Length 3: B -> C -> B -> C) ---
+    % Path: Bo -- Ce1 -- Be3 -- Co
+    \draw[edge] (Bo)  -- (Ce1);
+    \draw[edge] (Ce1) -- (Be2);
+    \draw[edge] (Be2) -- (Co);
+
+    % --- Path CA (Length 1: C -> A) ---
+    % Path: Co -- Ao
+    \draw[edge] (Co) -- (Ao);
+
+\end{tikzpicture}

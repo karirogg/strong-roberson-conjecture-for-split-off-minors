@@ -1,0 +1,36 @@
+\begin{tikzpicture}[
+    % Define the style for the vertices
+    vertex/.style={circle, draw, fill=black, inner sep=2pt},
+    % Define the thickness of the edges
+    thick
+]
+
+    % --- Configuration ---
+    \def\radius{1.5cm} % Radius of the pentagons
+
+    % --- The Shared Central Vertex ---
+    \node[vertex] (center) at (0,0) {};
+
+    % --- Left Cycle (Pentagon 1) ---
+    % Geometric center is at (-\radius, 0).
+    % We define nodes starting from the shared vertex (at 0 degrees relative to geometric center)
+    % and going counter-clockwise: 72, 144, 216, 288.
+    \foreach \angle [count=\i] in {72, 144, 216, 288} {
+        \node[vertex] (L\i) at ($(-\radius,0) + (\angle:\radius)$) {};
+    }
+    
+    % Draw the edges for the Left Cycle
+    \draw (center) -- (L1) -- (L2) -- (L3) -- (L4) -- (center);
+
+    % --- Right Cycle (Pentagon 2) ---
+    % Geometric center is at (\radius, 0).
+    % The shared vertex is at 180 degrees relative to this geometric center.
+    % We place other nodes at: 180+72, 180+144, etc.
+    \foreach \angle [count=\i] in {252, 324, 36, 108} {
+        \node[vertex] (R\i) at ($(\radius,0) + (\angle:\radius)$) {};
+    }
+
+    % Draw the edges for the Right Cycle
+    \draw (center) -- (R1) -- (R2) -- (R3) -- (R4) -- (center);
+
+\end{tikzpicture}

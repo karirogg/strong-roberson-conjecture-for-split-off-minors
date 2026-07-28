@@ -1,0 +1,50 @@
+% Define some styles for cleaner code
+\tikzset{
+    vertex/.style={
+        circle,
+        draw,
+        minimum size=4pt, % Adjust node size
+        inner sep=0pt
+    },
+    label_node/.style={
+        draw=none,
+        inner sep=1pt,
+        anchor=center,
+        font=\small % Adjust font size if needed
+    },
+    c_label/.style={
+        label_node,
+        above,
+        yshift=0.05cm % Shift "c_i" labels slightly further up
+    }
+}
+
+% Top Graph
+\begin{tikzpicture}[scale=1.5]
+    % Node definitions based on a grid pattern for spacing
+    \node[vertex] (c1) at (0, 1.5) [label={[yshift=0.05cm]above:$a_1$}] {};
+    \node[vertex] (v1) at (1, 0) {};
+    \node[vertex] (c2) at (2, 1.5) [label={[yshift=0.05cm]above:$a_2$}] {};
+    \node[vertex] (c5) at (3, 0) [label={[yshift=-0.05cm]below:$a_5$}] {}; % Label "c_5" further down
+    \node[vertex] (c3) at (4, 1.5) [label={[yshift=0.05cm]above:$a_3$}] {};
+    \node[vertex] (v2) at (5, 0) {};
+    \node[vertex] (c4) at (6, 1.5) [label={[yshift=0.05cm]above:$a_4$}] {};
+
+    % Draw the edges
+    \draw (c1) -- (v1);
+    \draw (v1) -- (c2);
+    \draw (v1) -- (c5);
+    \draw (c2) -- (c5);
+    \draw (c5) -- (c3);
+    \draw (c5) -- (v2);
+    \draw (c3) -- (v2);
+    \draw (v2) -- (c4);
+
+    % Finer label node placement for edge labels, using coordinate calculations for precision
+    \node[label_node] at ($(c1)!0.5!(v1) + (0.05, 0.15)$) {$x$};
+    \node[label_node] at ($(v1)!0.5!(c2) + (-0.05, 0.15)$) {$y$};
+    \node[label_node] at ($(v1)!0.5!(c5) + (0, -0.15)$) {$r$};
+    \node[label_node] at ($(c2)!0.5!(c5) + (0.05, 0.15)$) {$z$};
+    \node[label_node] at ($(c5)!0.5!(c3) + (-0.05, 0.15)$) {$z'$};
+    \node[label_node] at ($(c5)!0.5!(v2) + (0, -0.15)$) {$r'$};
+\end{tikzpicture}

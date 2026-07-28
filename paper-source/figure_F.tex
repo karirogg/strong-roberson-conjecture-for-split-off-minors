@@ -1,0 +1,75 @@
+\begin{tikzpicture}[
+    % Define styles for the two types of vertices
+    v_odd/.style={circle, draw=blue!80!black, fill=blue!20, inner sep=2pt, minimum size=6mm, font=\tiny},
+    v_even/.style={rectangle, draw=red!80!black, fill=red!20, inner sep=2.5pt, minimum size=5mm, font=\tiny},
+    % Define edge style
+    edge/.style={draw=black!70, thin}
+]
+
+    % --- Configuration ---
+    \def\cycleRadiusOdd{1.8cm}  % Radius for Odd nodes
+    \def\cycleRadiusEven{1.2cm} % Radius for Even nodes
+    \def\shift{2.2cm}           % Distance of pentagon centers from origin
+
+    % --- Helper Macro for Connections ---
+    % Arguments: (u_odd, u_even, v_odd, v_even)
+    % Logic: Path u_odd -- v_even -- u_even -- v_odd
+    \newcommand{\connectbags}[4]{
+        \draw[edge] (#1) -- (#4);
+        \draw[edge] (#4) -- (#2);
+        \draw[edge] (#2) -- (#3);
+    }
+
+    % --- The Central Bag (Shared Vertex) ---
+    % We place this at (0,0). To avoid overlap, we stack them vertically.
+    \node[v_odd] (C_o) at (0, 0.5) {};
+    \node[v_even] (C_e) at (0, -0.5) {};
+
+
+    % ================= LEFT CYCLE =================
+    % Geometric center at (-\shift, 0)
+    % We need 4 more bags (indices 1 to 4) to complete the 5-cycle.
+    % Angles relative to (-\shift, 0):
+    % The Center bag acts as the 0-degree neighbor.
+    % We place others at 72, 144, 216, 288.
+    
+    \foreach \angle [count=\i] in {72, 144, 216, 288} {
+        % Calculate coordinates relative to the left center
+        \coordinate (origin) at (-\shift,0);
+        \node[v_odd]  (L\i_o) at ($(origin) + (\angle:\cycleRadiusOdd)$) {};
+        \node[v_even] (L\i_e) at ($(origin) + (\angle:\cycleRadiusEven)$) {};
+    }
+
+    % --- Connect Left Cycle ---
+    % 1. Center Bag <-> L1
+    \connectbags{C_o}{C_e}{L1_o}{L1_e}
+    % 2. L1 <-> L2 <-> L3 <-> L4
+    \connectbags{L1_o}{L1_e}{L2_o}{L2_e}
+    \connectbags{L2_o}{L2_e}{L3_o}{L3_e}
+    \connectbags{L3_o}{L3_e}{L4_o}{L4_e}
+    % 3. L4 <-> Center Bag
+    \connectbags{L4_o}{L4_e}{C_o}{C_e}
+
+
+    % ================= RIGHT CYCLE =================
+    % Geometric center at (\shift, 0)
+    % Center bag acts as the 180-degree neighbor.
+    % We place others at 180+72, 180+144, etc. -> 252, 324, 36, 108
+    
+    \foreach \angle [count=\i] in {252, 324, 36, 108} {
+        \coordinate (origin) at (\shift,0);
+        \node[v_odd]  (R\i_o) at ($(origin) + (\angle:\cycleRadiusOdd)$) {};
+        \node[v_even] (R\i_e) at ($(origin) + (\angle:\cycleRadiusEven)$) {};
+    }
+
+    % --- Connect Right Cycle ---
+    % 1. Center Bag <-> R1
+    \connectbags{C_o}{C_e}{R1_o}{R1_e}
+    % 2. R1 <-> R2 <-> R3 <-> R4
+    \connectbags{R1_o}{R1_e}{R2_o}{R2_e}
+    \connectbags{R2_o}{R2_e}{R3_o}{R3_e}
+    \connectbags{R3_o}{R3_e}{R4_o}{R4_e}
+    % 3. R4 <-> Center Bag
+    \connectbags{R4_o}{R4_e}{C_o}{C_e}
+
+\end{tikzpicture}

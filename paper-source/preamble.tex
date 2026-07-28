@@ -1,0 +1,171 @@
+% Preamble for a minimal theoretical CS / graph theory style
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+\geometry{margin=1in}
+
+% \setlength{\parindent}{0pt}
+% \setlength{\parskip}{0.4em}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=black
+}
+
+
+
+
+\usepackage{physics}
+\usepackage[shortlabels]{enumitem}
+\usepackage{wrapfig, float}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning, shapes.geometric, fit}
+
+
+
+
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\usepackage{thmtools}
+
+
+
+\usepackage[justification=centering, margin=30pt, labelfont=bf]{caption}
+% \usepackage{mathabx}
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows}
+
+
+
+\renewcommand{\and}{\hspace{6pt}\text{and}\hspace{6pt}}
+
+
+\newcommand*{\heading}[1]{\begin{center}{\huge\textbf{#1}}\end{center}}
+\newcommand*{\subheading}[1]{\begin{center}{\large{#1}}\end{center}}
+
+
+\newcommand{\Or}{\hspace{6pt}\text{or}\hspace{6pt}}
+
+
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\sg}{sg}
+\renewcommand{\rm}{\text{rm}}
+\DeclareMathOperator{\qt}{qt}
+\renewcommand{\Pr}{\text{Pr}}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Sub}{Sub}
+\DeclareMathOperator{\cut}{cut}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\DP}{DP}
+\DeclareMathOperator{\LFP}{LFP}
+\DeclareMathOperator{\up}{\uparrow}
+\DeclareMathOperator{\down}{\downarrow}
+\DeclareMathOperator{\CSP}{CSP}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\fl}{fl}
+\DeclareMathOperator{\mon}{mon}
+\DeclareMathOperator{\poly}{poly}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\CFI}{CFI}
+\DeclareMathOperator{\Core}{Core}
+\DeclareMathOperator{\td}{td}
+\DeclareMathOperator{\tw}{tw}
+\DeclareMathOperator{\Undef}{undef}
+
+
+\newcommand{\If}{\hspace{6pt}\text{if}\hspace{6pt}}
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\T}{\mathcal{T}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\imm}{\preccurlyeq_{\text{imm}}}
+\newcommand{\immsimp}{\preccurlyeq_{\text{immsimp}}}
+\newcommand{\revimm}{\succcurlyeq_{\text{imm}}}
+\newcommand{\immo}{\preccurlyeq_{\text{imm-odd}}}
+\newcommand{\oddo}{\xrightarrow{\text{oddo}}}
+
+
+
+
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\flat}{\text{flat}}
+
+
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+
+
+
+
+% \setlength{\parindent}{0pt}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem*{note}{Note}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+
+
+% \newcounter{claimcount}
+% \newenvironment{claim}{
+%   \refstepcounter{claimcount}
+%   \begin{trivlist}
+%   \item[\hskip \labelsep {\textit{Claim \theclaimcount.}}] \itshape
+% }{
+%   \end{trivlist}
+% }
+% \newenvironment{proofofclaim}[1][Proof of claim]{
+%   \begin{proof}[#1]
+%   \renewcommand{\qedsymbol}{$\lozenge$} % Changes the QED symbol to a hollow diamond
+% }{
+%   \end{proof}
+% }
+
+
+\newenvironment{claim}{
+  \refstepcounter{theorem} % Increments the theorem counter instead
+  \begin{trivlist}
+  \item[\hskip \labelsep {\textit{Claim \thetheorem.}}] \itshape
+}{
+  \end{trivlist}
+}
+
+\newenvironment{proofofclaim}[1][Proof of claim]{
+  \begin{proof}[#1]
+  \renewcommand{\qedsymbol}{$\lozenge$} 
+}{
+  \end{proof}
+}
+
+
+

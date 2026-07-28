@@ -1,0 +1,100 @@
+\begin{minipage}{0.48\textwidth}
+    \centering
+
+\begin{tikzpicture}[
+    vertex/.style={circle, draw=black, thick, minimum size=14pt, inner sep=0pt, font=\small},
+    odd/.style={vertex, fill=blue!10},
+    even/.style={vertex, fill=white},
+    edge/.style={thick, black},
+    bag/.style={ellipse, draw=gray, dashed, inner sep=6pt},
+    scale=0.8
+]
+
+    % --- Bag A (Top left): 
+    \node[odd]  (Ao)  at (-1, 1)   {o};
+    \node[even] (Ae1) at (-2, 2) {e};
+    \node[bag, rotate fit=-45, fit=(Ao) (Ae1)] (BagA) {};
+
+    % --- Bag B (Top right Left):
+    \node[odd]  (Bo)  at (1, 1)   {o};
+    \node[odd] (Be1) at (2, 2) {o};
+    \node[odd] (Be2) at (3, 3) {o};
+    \node[bag, rotate fit=45, fit=(Bo) (Be1) (Be2)] (BagB) {};
+
+    % --- Bag C (Bottom Right):
+    \node[odd]  (Co)  at (1, -1)   {o};
+    \node[even] (Ce1) at (2, -2) {e};
+    \node[bag, rotate fit=-45, fit=(Co) (Ce1)] (BagC) {};
+
+    % --- Bag D (Bottom Left)
+    \node[odd]  (Do)  at (-1, -1)   {o};
+    \node[odd] (De1) at (-2, -2) {o};
+    \node[odd] (De2) at (-3, -3) {o};
+    \node[bag, rotate fit=45, fit=(Do) (De1) (De2)] (BagD) {};
+
+    \draw[edge] (Ao) -- (Bo);
+    \draw[edge] (Ae1) -- (Be1);
+    \draw[edge] (Ae1) -- (Be2);
+    
+    \draw[edge] (Bo) -- (Ce1);
+    \draw[edge] (Be1) -- (Ce1);
+    \draw[edge] (Be2) -- (Co);
+
+    \draw[edge] (Co) -- (De2);
+    \draw[edge] (Ce1) -- (De1);
+    \draw[edge] (Ce1) -- (Do);
+
+    \draw[edge] (Ao) -- (Do);
+    \draw[edge] (Ae1) -- (De1);
+    \draw[edge] (Ae1) -- (De2);
+      
+
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+    \centering
+
+\begin{tikzpicture}[
+    vertex/.style={circle, draw=black, thick, minimum size=14pt, inner sep=0pt, font=\small},
+    odd/.style={vertex, fill=blue!10},
+    even/.style={vertex, fill=white},
+    edge/.style={thick, black},
+    bag/.style={ellipse, draw=gray, dashed, inner sep=6pt},
+    scale=0.8
+]
+
+    % --- Bag A (Top left): 
+    \node[even] (Ao)  at (-1, 1) {};
+    \node[bag, rotate fit=-45, fit=(Ao)] (BagA) {};
+
+    % --- Bag B (Top right Left):
+    \node[even]  (Bo)  at (1, 1) {};
+    \node[even] (Be1) at (2, 2) {};
+    \node[even] (Be2) at (3, 3) {};
+    \node[bag, rotate fit=45, fit=(Bo) (Be1) (Be2)] (BagB) {};
+
+    % --- Bag C (Bottom Right):
+    \node[even]  (Co)  at (1, -1)   {};
+    \node[bag, rotate fit=-45, fit=(Co)] (BagC) {};
+
+    % --- Bag D (Bottom Left)
+    \node[even]  (Do)  at (-1, -1)   {};
+    \node[even] (De1) at (-2, -2) {};
+    \node[even] (De2) at (-3, -3) {};
+    \node[bag, rotate fit=45, fit=(Do) (De1) (De2)] (BagD) {};
+
+    \draw[edge] (Ao) -- (Bo);
+    \draw[edge] (Be2) -- (Be1);
+    
+    \draw[edge] (Bo) -- (Be1);
+    \draw[edge] (Be2) -- (Co);
+
+    \draw[edge] (Co) -- (De2);
+    \draw[edge] (Do) -- (De1);
+
+    \draw[edge] (Ao) -- (Do);
+    \draw[edge] (De2) -- (De1);
+      
+
+\end{tikzpicture}
+\end{minipage}
