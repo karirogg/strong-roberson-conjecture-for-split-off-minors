@@ -1,5 +1,4 @@
-import StrongRoberson.Oddomorphism
-import StrongRoberson.SplitOff
+import StrongRoberson.Proof.PaperProof
 
 /-!
 # Oddomorphisms imply split-off minors
@@ -28,6 +27,6 @@ theorem oddomorphism_implies_splitOffMinor
     (F : SimpleGraph α) (G : SimpleGraph γ)
     (φ : Oddomorphism (simpleToMultiGraph F) G) :
     IsSplitOffMinor (simpleToMultiGraph G) (simpleToMultiGraph F) := by
-  sorry
+  exact oddomorphism_implies_splitOffMinor_paper F G φ
 
 end StrongRoberson
