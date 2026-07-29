@@ -52,7 +52,7 @@ def reattachEdge {α β : Type*} (G : Graph α β) (e : β) (u v : α)
       · obtain ⟨x, y, hxy⟩ := G.exists_isLink_of_mem_edgeSet hf
         exact ⟨x, y, Or.inr ⟨hfe, hxy⟩⟩
     · rintro ⟨x, y, hnew | hold⟩
-      · simpa [hnew.1] using he
+      · simpa only [hnew.1] using he
       · exact hold.2.edge_mem
   left_mem_of_isLink := by
     intro f x y hxy
@@ -60,8 +60,8 @@ def reattachEdge {α β : Type*} (G : Graph α β) (e : β) (u v : α)
     · have h := hnew.2
       rw [Sym2.eq_iff] at h
       rcases h with h | h
-      · simpa [h.1] using hu
-      · simpa [h.1] using hv
+      · simpa only [h.1] using hu
+      · simpa only [h.1] using hv
     · exact hold.2.left_mem
 
 @[simp]
@@ -105,9 +105,13 @@ def splitOff {α β : Type*} (G : Graph α β)
     (h₁ : G.IsLink e₁ u v) (h₂ : G.IsLink e₂ v w)
     (hne : e₁ ≠ e₂) : Graph α β :=
   reattachEdge (G.deleteEdges {e₂}) e₁ u w
-    (by simp [hne, h₁.edge_mem])
-    (by simpa using h₁.left_mem)
-    (by simpa using h₂.right_mem)
+    (by
+      simp only [Graph.edgeSet_deleteEdges, Set.mem_sdiff, h₁.edge_mem,
+        Set.mem_singleton_iff, hne, not_false_eq_true, and_self])
+    (by
+      simpa only [Graph.vertexSet_deleteEdges] using h₁.left_mem)
+    (by
+      simpa only [Graph.vertexSet_deleteEdges] using h₂.right_mem)
 
 @[simp]
 theorem vertexSet_splitOff {α β : Type*} (G : Graph α β)

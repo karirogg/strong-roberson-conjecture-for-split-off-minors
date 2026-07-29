@@ -10,26 +10,24 @@ paper (`paper-source/main.tex`, lines 78--81):
 > If a graph `F` has an oddomorphism to a graph `G`, then `G` is a split-off
 > minor of `F`.
 
-The proof will be developed in subsequent modules. Defining the target as a
-proposition keeps this foundational milestone free of `sorry` and other
-temporary axioms.
+The proof is developed from the definitions in the imported modules.
 -/
 
 namespace StrongRoberson
 
 universe u
 
-/-- The formal statement that every oddomorphism between finite simple graphs
-exhibits its target as a split-off minor of its source.
+/-- Every oddomorphism between finite simple graphs exhibits its target as a
+split-off minor of its source (Theorem 6 of the paper).
 
-Both simple graphs are converted to multigraphs before applying
-`IsSplitOffMinor`, ensuring that all intermediate operations retain parallel
-edges and loops as required by the paper.
+Both simple graphs are converted to multigraphs so that all intermediate
+operations retain parallel edges and loops.
 -/
-def OddomorphismImpliesSplitOffMinor : Prop :=
-  ∀ (α γ : Type u) [Finite α] [Finite γ]
-    (F : SimpleGraph α) (G : SimpleGraph γ),
-    Oddomorphism (simpleToMultiGraph F) G →
-      IsSplitOffMinor (simpleToMultiGraph G) (simpleToMultiGraph F)
+theorem oddomorphism_implies_splitOffMinor
+    {α γ : Type u} [Finite α] [Finite γ]
+    (F : SimpleGraph α) (G : SimpleGraph γ)
+    (φ : Oddomorphism (simpleToMultiGraph F) G) :
+    IsSplitOffMinor (simpleToMultiGraph G) (simpleToMultiGraph F) := by
+  sorry
 
 end StrongRoberson

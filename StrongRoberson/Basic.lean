@@ -50,7 +50,8 @@ def simpleToMultiGraph {α : Type*} (G : SimpleGraph α) : Graph α (Sym2 α) wh
     · rintro ⟨u, v, huv, hadj⟩
       rw [huv, G.mem_edgeSet]
       exact hadj
-  left_mem_of_isLink := by simp
+  left_mem_of_isLink := by
+    simp only [Set.mem_univ, implies_true]
 
 @[simp]
 theorem vertexSet_simpleToMultiGraph {α : Type*} (G : SimpleGraph α) :
@@ -115,7 +116,8 @@ namespace GraphIso
 def refl {α β : Type u} (F : Graph α β) : GraphIso F F where
   vertexEquiv := Equiv.refl _
   edgeEquiv := Equiv.refl _
-  map_isLink := by simp
+  map_isLink := by
+    simp only [Equiv.refl_apply, implies_true]
 
 /-- Reverse a multigraph isomorphism. -/
 def symm {α β γ δ : Type u} {F : Graph α β} {G : Graph γ δ}
@@ -123,7 +125,8 @@ def symm {α β γ δ : Type u} {F : Graph α β} {G : Graph γ δ}
   vertexEquiv := i.vertexEquiv.symm
   edgeEquiv := i.edgeEquiv.symm
   map_isLink e x y := by
-    simpa using (i.map_isLink (i.edgeEquiv.symm e)
+    simpa only [Equiv.apply_symm_apply] using
+      (i.map_isLink (i.edgeEquiv.symm e)
       (i.vertexEquiv.symm x) (i.vertexEquiv.symm y)).symm
 
 /-- Compose multigraph isomorphisms. -/
