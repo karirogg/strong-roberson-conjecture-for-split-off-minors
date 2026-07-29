@@ -49,11 +49,26 @@ The proof-support modules in this directory are only for Theorem 6 of
 - In the lift lemma, a non-tree target edge can already lift directly between
   the selected branch vertices.  Its route therefore has length one *or*
   reduces to length two, not always length two as the prose says.
-- The paper describes the other arc of one lifted fundamental cycle as a
-  single repeated path.  `ChordWalk.lean` assembles the same arc recursively
-  from outside bridges `Y_k → X_{k+1}` and the intervening chord edges.  This
-  retains the same least-return orbit and the same first/last chord copies,
-  while avoiding dependent endpoint casts for one monolithic path.
+- For a non-forest edge `xy`, the paper adds `xy` to the spanning forest to
+  obtain a fundamental cycle.  In the lift, it takes the cycle containing the
+  selected lifted forest path from `x` to `y`, and then uses the other
+  `x`-to-`y` arc of that lifted cycle.  This other arc may go around the
+  fundamental cycle several times: one traversal of the fundamental cycle
+  can move to another sheet of the lift, so the lifted cycle closes only when
+  the selected lifted root first returns to itself.
+  In the non-direct case, `ChordWalk.lean` labels the endpoints of the `k`th
+  lifted chord edge by `X_k → Y_k` and writes the complementary arc as
+  ```
+  X_0 → Y_0  --bridge-->  X_1 → Y_1  --bridge-->  ···
+      --bridge-->  X_(n-1) → Y_(n-1),
+  ```
+  where each bridge `Y_k → X_(k+1)` follows lifted forest edges outside the
+  selected forest, `X_0` and `Y_(n-1)` are the selected lifts of `x` and `y`,
+  and `n` is the least positive return time.  Rather than defining this whole
+  display as one dependently typed path, Lean constructs its middle
+  recursively and records the first and last chord-edge copies separately.
+  Thus the orbit, endpoints, and boundary edges are the same as in the paper;
+  only the formal packaging avoids repeated endpoint casts.
 - Intermediate split graphs need target-edge provenance because they need not
   map homomorphically to `G`.  The fused local move avoids exposing such a
   graph as a recursive state; where an intermediate is used, the retained
