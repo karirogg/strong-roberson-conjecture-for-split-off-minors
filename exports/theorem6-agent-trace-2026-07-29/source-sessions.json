@@ -1,0 +1,83 @@
+[
+  {
+    "agent": "/root",
+    "nickname": null,
+    "session_id": "019fae00-2a41-7863-b12f-aedf7785d675",
+    "source_basename": "rollout-2026-07-29T13-11-14-019fae00-2a41-7863-b12f-aedf7785d675.jsonl",
+    "source_bytes": 4944712,
+    "source_sha256": "78f6e4cf0422c0d8f96b55f41f56c772b800dc8bfc3640329edf5a4d64d23610",
+    "source_records": 3037
+  },
+  {
+    "agent": "/root/paper_map",
+    "nickname": "Ampere",
+    "session_id": "019fae00-f56b-7ad3-b544-c56de60353a3",
+    "source_basename": "rollout-2026-07-29T13-12-06-019fae00-f56b-7ad3-b544-c56de60353a3.jsonl",
+    "source_bytes": 3508426,
+    "source_sha256": "8d471a41f6bcb27041e8109f18d41815c53101fc8121fb83bd0bc92a93ad8ce0",
+    "source_records": 2043
+  },
+  {
+    "agent": "/root/lean_structure",
+    "nickname": "Nietzsche",
+    "session_id": "019fae01-05c1-79e3-b2fa-efea8e8a7369",
+    "source_basename": "rollout-2026-07-29T13-12-10-019fae01-05c1-79e3-b2fa-efea8e8a7369.jsonl",
+    "source_bytes": 2119555,
+    "source_sha256": "95380a4c727029bb3c22f7cc0010d13375946a7d9fcba6f309a8b1bb24defb9c",
+    "source_records": 1187
+  },
+  {
+    "agent": "/root/mathlib_search",
+    "nickname": "Ramanujan",
+    "session_id": "019fae01-1794-7890-8a8f-d90b12aec985",
+    "source_basename": "rollout-2026-07-29T13-12-15-019fae01-1794-7890-8a8f-d90b12aec985.jsonl",
+    "source_bytes": 5045309,
+    "source_sha256": "09f56a2cc90eda9291c846f6d22b0eb8b484646ccb681378de0eb646d34b1362",
+    "source_records": 2812
+  },
+  {
+    "agent": "/root/routed_copy",
+    "nickname": "Epicurus",
+    "session_id": "019fae38-268a-74b0-86cb-10ec3f517377",
+    "source_basename": "rollout-2026-07-29T14-12-23-019fae38-268a-74b0-86cb-10ec3f517377.jsonl",
+    "source_bytes": 1805492,
+    "source_sha256": "43b32730f7016b4c230774cf31c97fcbb4750179ac4991b7dee8b76216275503",
+    "source_records": 1442
+  },
+  {
+    "agent": "/root/orbit_succ",
+    "nickname": "Wegener",
+    "session_id": "019fae5c-33af-7632-b1c9-145eaeb55e1b",
+    "source_basename": "rollout-2026-07-29T14-51-45-019fae5c-33af-7632-b1c9-145eaeb55e1b.jsonl",
+    "source_bytes": 935188,
+    "source_sha256": "0aa1152ff5a7a7959614cc654816ce7b847adb113c3180a793703d5d872eae2e",
+    "source_records": 870
+  },
+  {
+    "agent": "/root/forest_avoidance",
+    "nickname": "Carson",
+    "session_id": "019fae65-3d9f-75b2-84ea-c65e7c776ef1",
+    "source_basename": "rollout-2026-07-29T15-01-38-019fae65-3d9f-75b2-84ea-c65e7c776ef1.jsonl",
+    "source_bytes": 1533682,
+    "source_sha256": "8a1e35f7778ee2c72ddd2197f629e838dc1dc2b11f8ab9801e98ac0cbbe6cb07",
+    "source_records": 1289
+  },
+  {
+    "agent": "/root/chord_ends_orbit",
+    "nickname": "Boole",
+    "session_id": "019fae67-76c3-7bf0-af15-e30a1b373301",
+    "source_basename": "rollout-2026-07-29T15-04-04-019fae67-76c3-7bf0-af15-e30a1b373301.jsonl",
+    "source_bytes": 1339514,
+    "source_sha256": "f031acce8500ec5a94a98e3479dd72a7b0f3e15427d45b69298110996f5893ca",
+    "source_records": 1178
+  },
+  {
+    "agent": "/root/statement_audit",
+    "nickname": "Leibniz",
+    "session_id": "019fae72-0cb5-7023-ba9b-eb0074f760e1",
+    "source_basename": "rollout-2026-07-29T15-15-37-019fae72-0cb5-7023-ba9b-eb0074f760e1.jsonl",
+    "source_bytes": 1221786,
+    "source_sha256": "d6b8db4e64285a3fede2b5068db58f975acc76319321143bf0d956cf35dc3788",
+    "source_records": 1185
+  }
+]
